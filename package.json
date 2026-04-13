@@ -1,0 +1,12 @@
+{
+	"name": "anidb_tcp",
+	"version": "1.0.0",
+	"description": "",
+	"author": "",
+	"dependencies": {
+		"async": "*",
+		"gzbz2": "https://github.com/animetosho/node-gzbz2.git",
+		"log4js": "*",
+		"mysql": "*"
+	}
+}
