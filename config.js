@@ -23,7 +23,7 @@ module.exports = {
 	},
 	
 	// log file to write to (only if log4js is available)
-	logFile: __dirname + '/../logs/log-anidb_tcp-' + (function(){
+	logFile: __dirname + '/log-anidb_tcp-' + (function(){
 		var d = new Date(), m = d.getMonth()+1;
 		return d.getFullYear() + '-' + (m<10?'0':'') + m;
 	})() + '.txt',
