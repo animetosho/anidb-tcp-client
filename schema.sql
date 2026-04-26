@@ -1,4 +1,4 @@
-CREATE TABLE `agen` (
+CREATE TABLE IF NOT EXISTS `agen` (
   `id` int(10) unsigned NOT NULL,
   `aid` int(10) unsigned NOT NULL,
   `genid` smallint(5) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE `agen` (
   KEY (`genid`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `anime` (
+CREATE TABLE IF NOT EXISTS `anime` (
   `id` int(10) unsigned NOT NULL,
   `year` varchar(10) NOT NULL,
   `producer` varchar(100) DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `anime` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `animetitle` (
+CREATE TABLE IF NOT EXISTS `animetitle` (
   `id` int(10) unsigned NOT NULL,
   `aid` int(10) unsigned NOT NULL,
   `name` varchar(1000) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `animetitle` (
   KEY `aid_type` (`aid`,`type`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `animevote` (
+CREATE TABLE IF NOT EXISTS `animevote` (
   `id` int(10) unsigned NOT NULL,
   `rating` smallint(6) NOT NULL,
   `votes` int(11) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `animevote` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `award` (
+CREATE TABLE IF NOT EXISTS `award` (
   `id` int(10) unsigned NOT NULL,
   `name` varchar(100) NOT NULL,
   `url` varchar(250) DEFAULT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE `award` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `cat` (
+CREATE TABLE IF NOT EXISTS `cat` (
   `id` varchar(20) CHARACTER SET ascii NOT NULL,
   `name` varchar(50) NOT NULL,
   `isdefault` tinyint(4) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE `cat` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `ep` (
+CREATE TABLE IF NOT EXISTS `ep` (
   `id` int(10) unsigned NOT NULL,
   `aid` int(10) unsigned NOT NULL,
   `name` varchar(1024) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE `ep` (
   KEY (`aid`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `eptitle` (
+CREATE TABLE IF NOT EXISTS `eptitle` (
   `id` int(10) unsigned NOT NULL,
   `eid` int(10) unsigned NOT NULL,
   `name` varchar(1024) NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE `eptitle` (
   KEY (`eid`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `file` (
+CREATE TABLE IF NOT EXISTS `file` (
   `id` int(10) unsigned NOT NULL,
   `aid` int(10) unsigned NOT NULL,
   `eid` int(10) unsigned NOT NULL,
@@ -139,7 +139,7 @@ CREATE TABLE `file` (
   KEY (`ed2k`) -- always present if md5/sha1/crc exists; is also unique, but we'll stay safe and not assume that
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `fileeprel` (
+CREATE TABLE IF NOT EXISTS `fileeprel` (
   `id` int(10) unsigned NOT NULL,
   `fid` int(10) unsigned NOT NULL,
   `eid` int(10) unsigned NOT NULL,
@@ -151,7 +151,7 @@ CREATE TABLE `fileeprel` (
   KEY (`eid`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `filerel` (
+CREATE TABLE IF NOT EXISTS `filerel` (
   `id` int(10) unsigned NOT NULL,
   `fid` int(10) unsigned NOT NULL,
   `otherfid` int(10) unsigned NOT NULL,
@@ -162,13 +162,13 @@ CREATE TABLE `filerel` (
   KEY (`otherfid`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `gen` (
+CREATE TABLE IF NOT EXISTS `gen` (
   `id` smallint(5) unsigned NOT NULL,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `group` (
+CREATE TABLE IF NOT EXISTS `group` (
   `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `shortname` varchar(100) DEFAULT NULL,
@@ -185,7 +185,7 @@ CREATE TABLE `group` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `groupvote` (
+CREATE TABLE IF NOT EXISTS `groupvote` (
   `id` int(10) unsigned NOT NULL,
   `rating` smallint(6) NOT NULL,
   `votes` int(11) NOT NULL,
@@ -193,7 +193,7 @@ CREATE TABLE `groupvote` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `review` (
+CREATE TABLE IF NOT EXISTS `review` (
   `id` int(10) unsigned NOT NULL,
   `aid` int(10) unsigned NOT NULL,
   `vote` smallint(6) NOT NULL,
@@ -214,7 +214,7 @@ CREATE TABLE `review` (
   KEY (`aid`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `seq` (
+CREATE TABLE IF NOT EXISTS `seq` (
   `id` int(10) unsigned NOT NULL,
   `aid` int(10) unsigned NOT NULL,
   `nextaid` int(10) unsigned NOT NULL,
@@ -226,7 +226,7 @@ CREATE TABLE `seq` (
   KEY (`aid`)
 ) DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `mylist` (
+CREATE TABLE IF NOT EXISTS `mylist` (
   `id` int(10) unsigned NOT NULL,
   `fid` int(10) unsigned NOT NULL,
   `eid` int(10) unsigned NOT NULL,
@@ -245,14 +245,14 @@ CREATE TABLE `mylist` (
 
 
 
-CREATE TABLE `_lastcheck` (
+CREATE TABLE IF NOT EXISTS `_lastcheck` (
   `id` varchar(30) NOT NULL,
   `time` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
 /*
-CREATE TABLE `dumpnfo` (
+CREATE TABLE IF NOT EXISTS `dumpnfo` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `date` bigint(20) unsigned NOT NULL,
   `dumped` bigint(20) unsigned NOT NULL,
