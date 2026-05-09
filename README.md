@@ -154,3 +154,7 @@ The API includes a `BYE` request which can be used to close the connection.
 ## Direct Console
 
 You can use `node console` to get a netcat-like interface to the API. The magic `#auth` command can be used to send user authentication.
+
+# License
+
+This code is Public Domain or [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (or equivalent) if PD isn’t recognised.
